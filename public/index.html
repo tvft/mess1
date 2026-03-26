@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Локальный Мессенджер</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="user-info">
+                <h3 id="currentUser">Пользователь</h3>
+                <button id="logoutBtn" class="logout-btn">Выйти</button>
+            </div>
+            <div class="users-list">
+                <h4>Онлайн:</h4>
+                <div id="onlineUsers"></div>
+            </div>
+        </div>
+        
+        <div class="chat-area">
+            <div class="messages" id="messages"></div>
+            
+            <div class="input-area">
+                <div class="message-input">
+                    <button id="emojiBtn" class="emoji-btn">😊</button>
+                    <textarea id="messageInput" placeholder="Введите сообщение..."></textarea>
+                    <button id="sendBtn" class="send-btn">📨</button>
+                </div>
+                
+                <div class="media-buttons">
+                    <button id="fileBtn" class="media-btn">📎 Фото/Файл</button>
+                    <button id="voiceBtn" class="media-btn">🎙️ Голосовое</button>
+                    <button id="callBtn" class="media-btn">📞 Звонок</button>
+                    <button id="videoCallBtn" class="media-btn">🎥 Видеозвонок</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="voiceModal" class="modal">
+        <div class="modal-content">
+            <h3>Запись голосового сообщения</h3>
+            <button id="startRecordBtn">Начать запись</button>
+            <button id="stopRecordBtn" disabled>Остановить</button>
+            <div id="recordStatus"></div>
+        </div>
+    </div>
+    
+    <div id="callModal" class="modal">
+        <div class="modal-content">
+            <h3 id="callStatus">Входящий звонок</h3>
+            <div id="callControls">
+                <button id="answerCallBtn">Ответить</button>
+                <button id="rejectCallBtn">Отклонить</button>
+            </div>
+            <video id="localVideo" autoplay muted></video>
+            <video id="remoteVideo" autoplay></video>
+        </div>
+    </div>
+    
+    <div id="emojiPicker" class="emoji-picker" style="display: none;">
+        <div class="emoji-list">
+            <span>😊</span> <span>😂</span> <span>❤️</span> <span>😍</span>
+            <span>👍</span> <span>🔥</span> <span>🎉</span> <span>😢</span>
+            <span>😡</span> <span>😱</span> <span>🤔</span> <span>🥳</span>
+            <span>👋</span> <span>💪</span> <span>🙏</span> <span>💀</span>
+            <span>✨</span> <span>⭐</span> <span>⚡</span> <span>💯</span>
+        </div>
+    </div>
+    
+    <input type="file" id="fileInput" style="display: none" accept="image/*">
+    
+    <script src="client.js"></script>
+</body>
+</html>
